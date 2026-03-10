@@ -76,7 +76,7 @@ if(isset($_POST['login'])){
         echo "Data Tidak Boleh Kosong";
     } else {
 
-        $query = mysqli_query($koneksi,"SELECT * FROM admin WHERE Username='$username' AND Password='$password'");
+        $query = mysqli_query($koneksi,"SELECT * FROM tabel_user WHERE username='$username' AND password='$password'");
         $user = mysqli_fetch_array($query);
 
         if($user){
