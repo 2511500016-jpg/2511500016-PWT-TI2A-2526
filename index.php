@@ -148,13 +148,19 @@ with font-awesome or any other icon font library -->
             <?php if ($role == 'guru') : ?>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="index.php?page=ganti_password" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ganti Password</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?page=kelas" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
