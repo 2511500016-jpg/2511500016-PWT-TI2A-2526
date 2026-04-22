@@ -169,6 +169,13 @@ with font-awesome or any other icon font library -->
             <?php endif; ?>            
 
             <?php if ($role == 'siswa') : ?>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="index.php?page=ganti_password" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ganti Password</p>
+                </a>
+              </li>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
