@@ -125,7 +125,7 @@ with font-awesome or any other icon font library -->
          </a>
       </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="index.php?page=siswa" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
                   <p>Siswa</p>
                 </a>
