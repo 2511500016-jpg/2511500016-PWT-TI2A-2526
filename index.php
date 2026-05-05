@@ -142,6 +142,12 @@ with font-awesome or any other icon font library -->
                   <p>Kelas</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="index.php?page=ekstra2511500016" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ekstrakurikuler</p>
+                </a>
+              </li>
             </ul>
             <?php endif; ?>   
 
