@@ -19,7 +19,7 @@ if(isset($_GET['action'])) {
       <div class="alert alert-warning alert-dismissible">
         Berhasil Di Hapus
       </div>';
-      echo '<meta http-equiv="refresh" content="1;url=index.php?page=guru">';
+      echo '<meta http-equiv="refresh" content="1;url=index.php?page=jabwal">';
     }
   }
 }
@@ -47,24 +47,24 @@ if(isset($_GET['action'])) {
         <tbody>
         <?php
         $no = 0;
-        $query = mysqli_query($koneksi, "SELECT * FROM tabel_jabwal");
+        $query = mysqli_query($koneksi, "SELECT * FROM jabwal_kelas");
         while ($result = mysqli_fetch_array($query)) {
           $no++;
         ?>
           <tr>
             <td><?= $no; ?></td>
-            <td><?= $result['kd_kelas']; ?></td>
+            <td><?= $result['id_kelas']; ?></td>
             <td><?= $result['thn_ajaran']; ?></td>
-            <td><?= $result['semester016']; ?></td>
+            <td><?= $result['semester']; ?></td>
             <td>
               <a href="index.php?page=jabwal&action=hapus&kd=<?= $result['kd_Jadwal'] ?>">
                 <span class="badge badge-danger">Hapus</span>
               </a>
 
                               
-              <a href="index.php?page=detail_jabwal&kd=<?= $result['id_Jadwal'] ?>">
-                <span class="badge badge-info">Detail</span>
-              </a>
+              <a href="index.php?page=detail_jabwal&kd=<?= $result['id_jadwal'] ?>">
+    <span class="badge badge-info">Detail</span>
+</a>
             </td>
           </tr>
         <?php } ?>

@@ -27,14 +27,13 @@
 
         <tbody>
         <?php
-        $no = 0;
-        $query = mysqli_query($koneksi, "SELECT * FROM detail_jadwal");
+        $no = 0; $query = mysqli_query($koneksi, "SELECT * FROM jabwal_kelas  jk JOIN detail_jadwal dj ON jk.id_jadwal = dj.id_jadwal JOIN tabel_mapel tm ON tm.kd_mapel = dj.kd_mapel JOIN tabel_guru tg ON tg.kd_guru = dj.kd_guru;");
         while ($result = mysqli_fetch_array($query)) {
           $no++;
         ?>
           <tr>
             <td><?= $no; ?></td>
-            <td><?= $result['kd_jadwal']; ?></td>
+            <td><?= $result['id_jadwal']; ?></td>
             <td><?= $result['kd_mapel']; ?></td>
             <td><?= $result['kd_guru']; ?></td>
             <td><?= $result['hari']; ?></td>
