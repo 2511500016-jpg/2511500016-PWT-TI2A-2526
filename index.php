@@ -141,6 +141,12 @@ with font-awesome or any other icon font library -->
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
+                </li>
+              <li class="nav-item">
+                <a href="index.php?page=jabwal_kelas" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Jadwal kelas</p>
+                </a>
               </li>
               <li class="nav-item">
                 <a href="index.php?page=ekstra2511500016" class="nav-link active">
@@ -202,7 +208,7 @@ with font-awesome or any other icon font library -->
                 </a>
                 <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="index.php?page=jabwal" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
