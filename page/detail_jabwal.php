@@ -17,7 +17,7 @@
         <thead>
           <tr>
             <th>NO</th>
-            <th>Kd Jadwal</th>
+            <th>Id Jadwal</th>
             <th>Kd Mapel</th>
             <th>Kd Guru</th>
             <th>Hari</th>
