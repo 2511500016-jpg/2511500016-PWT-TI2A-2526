@@ -56,7 +56,7 @@ if (isset($_POST['tambah'])) {
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     Data berhasil disimpan
                   </div>';
-            echo '<meta http-equiv="refresh" content="1;url=index.php?page=jadwal">';
+            echo '<meta http-equiv="refresh" content="1;url=index.php?page=jabwal_kelas">';
         } else {
             echo '<div class="alert alert-danger alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -115,7 +115,7 @@ if (isset($_POST['tambah'])) {
                                name="tambah"
                                value="Simpan"
                                class="btn btn-primary">
-                        <a href="index.php?page=jadwal"
+                        <a href="index.php?page=jabwal_kelas"
                            class="btn btn-secondary">Kembali</a>
                     </div>
 

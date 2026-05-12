@@ -12,12 +12,12 @@
 if (isset($_GET['action'])) {
     if ($_GET['action'] == "hapus") {
         $kd = $_GET['kd'];
-        $query = mysqli_query($koneksi, "DELETE FROM jabwal_kelas where id_jadwal = '$kd' ");
+        $query = mysqli_query($koneksi, "DELETE FROM jabwal_kelas WHERE id_jadwal='$kd'");
         if ($query) {
             echo '
             <div class="alert alert-warning alert-dismissible">
             Berhasil Di Hapus</div>';
-            echo '<meta http-equiv="refresh" content="1;url=index.php?page=jadwal">';
+            echo '<meta http-equiv="refresh" content="1;url=index.php?page=jabwal_kelas">';
         }
     }
 }
@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
                         <td><?= $result['thn_ajaran']; ?></td>
                         <td><?= $result['semester']; ?></td>
                         <td>
-                            <a href="index.php?page=jadwal&action=hapus&kd=<?= $result['id_jadwal'] ?>" title="">
+                            <a href="index.php?page=jabwal_kelas&action=hapus&kd=<?= $result['id_jadwal'] ?>" title="">
                                 <span class="badge badge-danger">Hapus</span>
                             </a>
                             <a href="index.php?page=edit_jabwalkelas&kd=<?= $result['id_jadwal'] ?>" title="">
