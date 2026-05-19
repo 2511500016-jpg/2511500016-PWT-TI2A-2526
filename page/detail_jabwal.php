@@ -34,8 +34,8 @@
           <tr>
             <td><?= $no; ?></td>
             <td><?= $result['id_jadwal']; ?></td>
-            <td><?= $result['kd_mapel']; ?></td>
-            <td><?= $result['kd_guru']; ?></td>
+            <td><?= $result['nm_mapel']; ?></td>
+            <td><?= $result['nm_guru']; ?></td>
             <td><?= $result['hari']; ?></td>
             <td>
               <?= $result['jam_mulai']; ?> - <?= $result['jam_selesai']; ?>
