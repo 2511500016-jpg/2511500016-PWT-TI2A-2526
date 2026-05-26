@@ -3,10 +3,10 @@ if (isset($_GET['hapus'])) {
     $kd_jadwal = $_GET['hapus'];
 
     // Hapus detail jadwal dulu
-    mysqli_query($koneksi, "DELETE FROM detailjadwal WHERE kd_jadwal = '$kd_jadwal'");
+    mysqli_query($koneksi, "DELETE FROM detail_jadwal WHERE id_jadwal = '$kd_jadwal'");
 
     // Lalu hapus jadwal
-    $hapus = mysqli_query($koneksi, "DELETE FROM jadwal WHERE kd_jadwal = '$kd_jadwal'");
+    $hapus = mysqli_query($koneksi, "DELETE FROM tabel_jadwal WHERE id_jadwal = '$kd_jadwal'");
 
     if ($hapus) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -63,7 +63,7 @@ CONCAT(tm.nm_mapel , ' - ' , dj.hari , ' - ' , dj.jam_mulai , ' - ' , dj.jam_sel
 FROM detail_jadwal dj 
 JOIN tabel_guru tg ON dj.kd_guru = tg.kd_guru
 JOIN tabel_mapel tm ON dj.kd_mapel = tm.kd_mapel
-JOIN jabwal_kelas jk  ON dj.id_Jadwal = jk.id_jadwal
+JOIN jabwal_kelas jk  ON dj.id_jadwal = jk.id_jadwal
 join tabel_kelas tk on jk.id_kelas = tk.kd_kelas");
 
                         while ($row = mysqli_fetch_assoc($query)) {
@@ -79,7 +79,7 @@ join tabel_kelas tk on jk.id_kelas = tk.kd_kelas");
                             $det = mysqli_query($koneksi, "SELECT tk.nm_kelas,d.*, tm.nm_mapel 
                                 FROM detail_jadwal d
                                 JOIN tabel_mapel tm ON d.kd_mapel = tm.kd_mapel
-                                JOIN jabwal_kelas jk  ON d.id_Jadwal = jk.id_jadwal
+                                JOIN jabwal_kelas jk  ON d.id_jadwal = jk.id_jadwal
                                 join tabel_kelas tk ON jk.id_kelas = tk.kd_kelas
                                 WHERE d.id_Jadwal = '{$row['id_Jadwal']}'");
 
@@ -90,7 +90,7 @@ join tabel_kelas tk on jk.id_kelas = tk.kd_kelas");
                             echo "</ul>
                             </td>
                             <td>
-                            <a href='index.php?page=jadwal&hapus={$row['id_Jadwal']}'
+                            <a href='index.php?page=jabwal&hapus={$row['id_Jadwal']}'
                             onclick=\"return confirm('Yakin ingin menghapus data ini?')\"
                             class='btn btn-danger btn-sm'>Hapus</a>
                             </td>
