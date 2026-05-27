@@ -177,6 +177,12 @@ with font-awesome or any other icon font library -->
                   <p>Kelas</p>
                 </a>
               </li>
+               <li class="nav-item">
+                <a href="index.php?page=jabwal_guru" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jadwal Guru</p>
+                </a>
+              </li>
             </ul>
             <?php endif; ?>            
 

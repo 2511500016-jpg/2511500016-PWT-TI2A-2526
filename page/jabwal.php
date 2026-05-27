@@ -48,6 +48,7 @@ if (isset($_GET['hapus'])) {
                     <thead>
                         <tr>
                             <th>Kode Jadwal</th>
+                            <th>kode Guru</th>
                             <th>Guru</th>
                             <th>Semester</th>
                             <th>Tahun Ajaran</th>
@@ -58,17 +59,67 @@ if (isset($_GET['hapus'])) {
 
                     <tbody>
                         <?php
-                        $query = mysqli_query($koneksi, "SELECT  dj.id_Jadwal,tg.nm_guru,jk.semester,jk.thn_ajaran,
-CONCAT(tm.nm_mapel , ' - ' , dj.hari , ' - ' , dj.jam_mulai , ' - ' , dj.jam_selesai , ' - ' , tk.nm_kelas) as detail
-FROM detail_jadwal dj 
-JOIN tabel_guru tg ON dj.kd_guru = tg.kd_guru
-JOIN tabel_mapel tm ON dj.kd_mapel = tm.kd_mapel
-JOIN jabwal_kelas jk  ON dj.id_jadwal = jk.id_jadwal
-join tabel_kelas tk on jk.id_kelas = tk.kd_kelas");
+//session_start();
 
-                        while ($row = mysqli_fetch_assoc($query)) {
+$username = $_SESSION['username'];
+$role = $_SESSION['role'];
+
+$query = "
+SELECT  
+    dj.id_Jadwal,
+    tg.kd_guru,
+    tg.nm_guru,
+    jk.semester,
+    jk.thn_ajaran,
+    CONCAT(
+        tm.nm_mapel, ' - ',
+        dj.hari, ' - ',
+        dj.jam_mulai, ' - ',
+        dj.jam_selesai, ' - ',
+        tk.nm_kelas
+    ) AS detail
+FROM detail_jadwal dj
+JOIN tabel_guru tg 
+    ON dj.kd_guru = tg.kd_guru
+JOIN tabel_mapel tm 
+    ON dj.kd_mapel = tm.kd_mapel
+JOIN jabwal_kelas jk  
+    ON dj.id_jadwal = jk.id_jadwal
+JOIN tabel_kelas tk 
+    ON jk.id_kelas = tk.kd_kelas
+WHERE 1=1
+";
+
+// Jika role guru
+if ($role == 'guru') {
+    $query .= " AND tg.nm_guru = '$username'";
+}
+
+// Jika role siswa
+if ($role == 'siswa') {
+
+    // Ambil id_kelas siswa
+    $getSiswa = mysqli_query(
+        $koneksi,
+        "SELECT ts.id_kelas 
+         FROM tabel_siswa ts
+         JOIN tabel_user tu ON ts.id_user = tu.id_user
+         WHERE tu.username = '$username'"
+    );
+
+    $dataSiswa = mysqli_fetch_assoc($getSiswa);
+    $id_kelas = $dataSiswa['id_kelas'];
+
+    $query .= " AND jk.id_kelas = '$id_kelas'";
+}
+
+$result = mysqli_query($koneksi, $query);
+
+
+                        while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>
                             <td>{$row['id_Jadwal']}</td>
+                            <td>{$row['kd_guru']}</td>  
                             <td>{$row['nm_guru']}</td>
                             <td>{$row['semester']}</td>
                             <td>{$row['thn_ajaran']}</td>
@@ -76,6 +127,7 @@ join tabel_kelas tk on jk.id_kelas = tk.kd_kelas");
                             <td>
                             <ul>";
 
+                
                             $det = mysqli_query($koneksi, "SELECT tk.nm_kelas,d.*, tm.nm_mapel 
                                 FROM detail_jadwal d
                                 JOIN tabel_mapel tm ON d.kd_mapel = tm.kd_mapel
@@ -97,6 +149,9 @@ join tabel_kelas tk on jk.id_kelas = tk.kd_kelas");
                             </tr>";
                         }
                         ?>
+                        <a href="index.php?page=cetak_jabwalkelas"class="btn btn-success btn-sm">
+                        Cetak Jadwal
+                        </a>
                     </tbody>
                 </table>
 

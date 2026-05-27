@@ -101,6 +101,7 @@ if (isset($_POST['username'])) {
       if ($userquery['password'] == $password) {
         $_SESSION['role'] = $userquery['role'];
         $_SESSION['username'] = $username;
+        
 
         if($userquery['role'] == 'guru' || $userquery['role'] == 'siswa'){
           if ($userquery['password'] == '1234') {

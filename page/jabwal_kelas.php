@@ -63,8 +63,6 @@ if (isset($_GET['action'])) {
                             <a href="index.php?page=edit_jabwalkelas&kd=<?= $result['id_jadwal'] ?>" title="">
                                 <span class="badge badge-warning">Edit</span>
                             </a>
-                            <a href="index.php?page=cetak_jabwalkelas" target="_blank" title="">
-                                <span class="badge badge-info">Cetak</span>
                         </td>
                     </tr>
                 </tbody>

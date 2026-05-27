@@ -33,9 +33,10 @@ if (isset($_POST['tambah'])) {
     $hari = $_POST['hari'];
     $jam = explode("-", $_POST['jam'][0]);
 
-$jam_mulai = $jam[0];
-$jam_selesai = $jam[1];
+    $jam_mulai = $jam[0];
+    $jam_selesai = $jam[1];
     $kelas = $_POST['kelas'][0];
+    echo $jam;
 
     // Insert ke tabel jadwal
     $insertjadwal = mysqli_query($koneksi, "INSERT INTO jabwal_kelas (semester, thn_ajaran, id_kelas) VALUES ('$semester', '$thn_ajaran', '$kelas')");
@@ -154,10 +155,10 @@ $id_jadwal = mysqli_insert_id($koneksi);
                             <div class="col-md-3">
                                 <select name="jam[]" class="form-control" required>
                                     <option selected disabled>--Pilih Jam--</option>
-                                    <option>08.00-10.00</option>
-                                    <option>08.00-09.30</option>
-                                    <option>10.30-12.00</option>
-                                    <option>12.30-14.00</option>
+                                    <option>08:00-10:00</option>
+                                    <option>08:00-09:30</option>
+                                    <option>10:30-12:00</option>
+                                    <option>12:30-14:00</option>
                                 </select>
                             </div>
 
